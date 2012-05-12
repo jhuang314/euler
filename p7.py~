@@ -1,0 +1,6 @@
+
+def isPrime(x):
+	if pow(3,x-1) % x == 1:
+		if pow(7,x-1) % x == 1:
+			return True
+	return False

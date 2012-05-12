@@ -1,0 +1,4 @@
+#problem 25
+
+p = 1L
+print p

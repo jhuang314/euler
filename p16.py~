@@ -1,0 +1,4 @@
+#problem 16
+
+length = log(2)
+print length

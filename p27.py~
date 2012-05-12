@@ -1,0 +1,3 @@
+#solution for problem 27
+
+max = dict({a:0})
