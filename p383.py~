@@ -1,0 +1,46 @@
+#solve problem 383
+
+def f5(n):
+    x = 1L
+    base = 5L
+    max = 0L
+    while base <= n:
+        if n % base == 0:
+            max = x
+        base *= 5
+        x += 1
+    return max
+
+def f5p(n):
+    count = 0L
+    while n%5==0:
+        n /= 5
+        count += 1
+    return count
+
+def f5fac(n):
+    count = 0
+    for i in range(5L,n+1L,5):
+        count += f5p(i)
+    return count
+
+print f5fac(100000000)
+
+
+def fac(n):
+    res = 1L
+    for i in range(1L,n+1L):
+        res *= i
+    return res
+
+
+#print f5p(fac(200000))
+
+def t5(n):
+    count = 0L
+    for i in range(1,n+1):
+        if f5fac(2*i-1) < 2*f5fac(i):
+            count += 1
+    return count
+
+#print t5(1000000000)

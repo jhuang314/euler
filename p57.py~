@@ -1,0 +1,16 @@
+#solve problem 57
+
+num = 1L
+denom = 2L
+temp = 1L
+count = 0
+
+for i in range(0,1000):
+    temp += 2*denom+num
+    num = denom
+    denom = temp
+    if (long)log10(num+denom)-(long)log10(denom) >= 1:
+        count += 1
+    print "%l/%l" % (num+denom,denom)
+
+print count
