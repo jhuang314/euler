@@ -2,6 +2,7 @@
 from math import *
 import sys
 import random
+import fractions
 
 def length(x):
     logs = ceil(log10(x))
@@ -106,3 +107,46 @@ def pfactor(x):
             num += 1
             return pfactors
     return pfactors
+
+
+def esieve(x):
+    primes = []
+    sieve = [0]*x
+    lim = int(sqrt(x))+1
+    i = 2
+    for i in xrange(2,lim):
+        if sieve[i]==0:
+            primes.append(i)
+            for j in xrange(i*i,x,i):
+                sieve[j] = 1
+    for k in xrange(i,x):
+        if sieve[k]==0:
+            primes.append(k)
+    return primes
+
+
+def brent(N):
+    if N%2==0:
+        return 2
+    y,c,m = random.randint(1, N-1),random.randint(1, N-1),random.randint(1, N-1)
+    g,r,q = 1,1,1
+    while g==1:            
+        x = y
+        for i in range(r):
+            y = ((y*y)%N+c)%N
+        k = 0
+        while (k<r and g==1):
+            ys = y
+            for i in range(min(m,r-k)):
+                y = ((y*y)%N+c)%N
+                q = q*(abs(x-y))%N
+            g = fractions.gcd(q,N)
+            k = k + m
+        r = r*2
+    if g==N:
+        while True:
+            ys = ((ys*ys)%N+c)%N
+            g = fractions.gcd(abs(x-ys),N)
+            if g>1:
+                break
+    return g
