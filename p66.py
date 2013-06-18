@@ -7,8 +7,6 @@ def minSol(d):
         if x == int(x):
             return x
 
-
-
 maxX = 0
 index = 0
 for i in xrange(2,1001):
