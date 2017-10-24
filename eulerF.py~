@@ -1,4 +1,0 @@
-#useful functions for project euler
-
-def length(x):
-    
